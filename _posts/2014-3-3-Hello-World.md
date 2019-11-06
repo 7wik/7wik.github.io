@@ -1,10 +1,16 @@
 ---
 layout: post
-title: You're up and running!
+title: An introduction about me and my work!
 ---
+Hi! I'm Satwik
 
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
+I completed my Bachelors in Electrical Engineering from IIT BHU Varanasi. After that I have worked as a Research Assistant for a year at IIT-Hyderabad. I am currently working as a **Senior Associate** in CT-Tech Practice(work equivalent to an ML engineer) at **EY**. 
 
-![_config.yml]({{ site.baseurl }}/images/config.png)
+I'm an ML enthusiast. Working on multiple areas in the broad spectrum of ML and it's related areas like Reinforcement Learning, Computer Vision, Deep learning, during my B-Tech and the later years, nurtured this enthusiasm of mine. 
 
-The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
+- [Prof Vineeth Balasubramanian](https://www.iith.ac.in/~vineethnb/)
+- [Prof Lakshmanan Kailasam](https://www.iitbhu.ac.in/dept/cse/people/lakshmanankcse)
+- [Sanjeev sharma](https://www.linkedin.com/in/sanjeevsharmaiitr/) 
+mentored me during my quest for _exploring_ the multiple fascets of the broad field of ML and _exploiting_ the experience by working on interesting research problems.   
+
+This blog is particularly intended to convey what I've learned in ML through  my experiences, also I will try too discuss some of the research problems that I had worked on in the past- I started-off with pretty naive problems but as I started gaining experience, the level of complexity in the problems I dealt with also increased.

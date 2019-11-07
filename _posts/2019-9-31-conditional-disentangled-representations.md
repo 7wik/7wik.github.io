@@ -4,7 +4,7 @@ title: Class conditional and generic disentangled representations
 ---
 
 During my internship at IIT-H, I came across disentangled representations while going through the ICML paper [Disentangling by factorising](https://arxiv.org/pdf/1802.05983.pdf). In this work by Kim et al, Factor-VAE, modeling of the disentangled representations is done by encouraging the marginal distribution of latents to be factorial. They achieved this by minimizing the total correlation(TC) of the latent units.
-$TC(z_1,z_2,...,z_n)= \frac{p(z_1,z_2,...,z_n)}{\pi_{i=1}^{n}p(z_i)}$
+$$TC(z_1,z_2,...,z_n)= \frac{p(z_1,z_2,...,z_n)}{\pi_{i=1}^{n}p(z_i)}$$
 
 # Our problem
 

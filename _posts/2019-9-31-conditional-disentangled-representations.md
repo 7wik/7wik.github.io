@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Class conditional disentangled representations
+title: Class conditional and generic disentangled representations
 ---
 
 During my internship at IIT-H, I came across disentangled representations while going through the ICML paper [Disentangling by factorising](https://arxiv.org/pdf/1802.05983.pdf). In this work by Kim et al, it was proved that by minimizing a Total Correlation term through which their model encourages a factorial representation of the latent. 

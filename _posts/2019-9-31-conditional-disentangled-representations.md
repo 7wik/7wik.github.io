@@ -32,7 +32,7 @@ We generally take standard gaussian as $$p(z)$$, so the representation $$q(z)$$ 
     \caption{Proposed model framework. The blocks in blue are trained in one step and the block in red is trained in another step}
     \label{fig:proposed model}
 \end{figure}
-\subsection{Proposed Model}
+# Proposed Model
 We propose a model which is a modification to the previous model's framework which allows us to model both class-dependent and class-independent factors. Let \textbf{z},\textbf{w} denote the set of class-dependent and class-independent variables respectively. We define a joint posterior $$ q_{\phi}(z,w|x,y) $$, a prior $$ p(z,w|y) $$ and likelihood $$ p_{\theta}(x|z,w,y) $$. With this premise, the conventional $$ \beta $$-VAE kind of objective is,
 \begin{equation}
     L(\theta,\phi)= E_{q_{\phi}(z,w|x,y)}[p_{\theta}(x|z,w,y)]-\beta .KL(q_{\phi}(z,w|x,y)||p(z,w|y))

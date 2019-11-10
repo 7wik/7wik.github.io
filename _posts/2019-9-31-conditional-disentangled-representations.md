@@ -78,7 +78,7 @@ Each block corresponds to reconstructions observed while varying one particular 
 ## Quantitative results
 To check the extent to which our objective has helped in channeling the class-information from $$z$$ to $$w$$, we have trained separate classifiers(with same capacity) on samples from $$z$$ and $$w|y$$ respectively to predict their respective class labels with and without using $$L_{class}$$ on the datasets MNIST,Fashion-MNIST and CelebA. The accuracies we are mentioning here are the average accuracies of $$3$$ runs. We took this average to avoid misjudgment caused due to randomization. It can be clearly observed that in all the $$3$$ datasets that we have tested upon, the case when using $$L_{class}$$ is helping $$w$$ in achieving higher accuracy in predicting the true label. This gives enough validation to our intent for the class-specific information to reside in $$w$$ and non-class specific information to be in $$z$$.
 | Dataset       | Method                | Accuracy on z|Accuracy on w      |
-| ------------- |---------------------  | ------------:|-------------------|                    
+| ------------- |:---------------------:|: -----------:|------------------:|                    
 | Fmnist        | without $$L_{class}$$ | 0.337        |0.47               |
 | Fmnist        | with    $$L_{class}$$ | 0.32         |$$\textbf{0.68} $$ |
 | Mnist         | without $$L_{class}$$ | 0.37         |0.31               |

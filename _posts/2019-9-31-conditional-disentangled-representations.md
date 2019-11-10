@@ -53,6 +53,6 @@ Since the classifier must also be capable of predicting the correct class label 
 \end{alignat}
 So, our overall objective is to solve the below multi-step optimization problem where we train the parameters of encoder and decoder by solving the maximization problem in the first-step and train the parameters of the classifier in the next step while solving the minimization problem-
 \begin{align}
-  &  \max_{\theta,\phi} \quad && L(\theta,\phi)+ L_{class}\\
+  &  \max_{\theta,\phi} \quad && L(\theta,\phi)+ L_{class} \\
   &  \min_{\psi}        \quad && L_{class}
 \end{align} 

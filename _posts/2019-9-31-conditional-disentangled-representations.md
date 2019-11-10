@@ -56,5 +56,5 @@ So, our overall objective is to solve the below multi-step optimization problem 
   &  \max_{\theta,\phi} \quad && L(\theta,\phi)+ L_{class} 
 \end{align} 
 \begin{align}
-  &  \min_{\psi}        \quad && L_{class}
+  &  \min_{\psi}  \quad && L_{class}
 \end{align} 

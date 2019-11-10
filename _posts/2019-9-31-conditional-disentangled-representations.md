@@ -13,7 +13,7 @@ Factor-VAE learns a generalised set of factors of variation for all the classes 
 
 # Assumptions and approach
 
-We assume that we have a dataset $$ \mathbb{D} $$ of samples $$(x,y)$$ with $$ n $$ classes where $$x$$ is our observation and $$y$$ is it's one-hot encoded class label belonging to $$\{y \in \{0,1\}^{n}| \sum_i(y_i)=1\}$$. We consider a VAE kind of setup for our experiments and problem solving. Since we are interested in learning disentangled representations which take the class information into consideration, the obvious choice is to explicitly condition the encoder with the class label for learning representations with cues from the class label.
+We assume that we have a dataset $$\mathbb{D}$$ of samples $$(x,y)$$ with $$n$$ classes where $$x$$ is our observation and $$y$$ is it's one-hot encoded class label belonging to $$\{y \in \{0,1\}^{n}| \sum_i(y_i)=1\}$$. We consider a VAE kind of setup for our experiments and problem solving. Since we are interested in learning disentangled representations which take the class information into consideration, the obvious choice is to explicitly condition the encoder with the class label for learning representations with cues from the class label.
 
 # naive-model
 We consider the set of latent variables to be denoted by \textbf{z} and we define a posterior $$ q_{\phi}(z|x,y) $$, a prior $$ p(z|y) $$ and likelihood $$ p_{\theta}(x|z,y) $$ This model's framework is similar to a fully supervised conditional VAE setup, where we try to optimize the variational lower bound 

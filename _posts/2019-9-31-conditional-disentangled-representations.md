@@ -23,12 +23,7 @@ We consider the set of latent variables to be denoted by $$\textbf{z}$$ and we d
 But in our case since we want to learn disentangled representations, like in [$$\beta-$$VAE](https://openreview.net/references/pdf?id=Sy2fzU9gl), we have an additional weight on the KL-divergence term to ensure disentanglement of the variables. 
 The problem with this objective is quite clear, similar to that of $$\beta-$$VAE's the additional weight that we put on KL-divergence term is adding on to minimizing the mutual information between $$z$$ and the joint variable $$(x,y)$$ w.r.t the variational joint distribution as well. Hence, even though the $$z$$ gets disentangled, the latent code's knowledge about the data is minimized in every step. This can be easily shown following the [Makhzani et al](https://arxiv.org/pdf/1706.00531.pdf) and proof in [Factor-VAE](https://arxiv.org/pdf/1802.05983.pdf).
 \begin{align}
-  E_{(x,y)\sim D(x,y)}[KL(q_{\theta}(z|x,y)||p(z))] 
-  &= E_{(x,y)\sim D(x,y)}[E_{q_{\theta}(z|x,y)}[log[\frac{q_{\theta}(z|x,y)}{p(z)}]]]\\ 
-  &= E_{(x,y)\sim D(x,y)}[E_{q_{\theta}(z|x,y)}[log[\frac{q_{\theta}(z|x,y)}{p(z)}\frac{q(z)}{q(z)}]]]\\
-  &= E_{(x,y)\sim D(x,y)}[E_{q_{\theta}(z|x,y)}[log[\frac{q_{\theta}(z|x,y)}{q(z)}\frac{q(z)}{p(z)}]]]\\
-  &= E_{(x,y)\sim D(x,y)}[E_{q_{\theta}(z|x,y)}[log[\frac{q_{\theta}(z|x,y)}{q(z)}]+log[\frac{q(z)}{p(z)}]]]\\
-  &= I(z;(x,y))+KL(q(z)||p(z))
+  E_{(x,y)\sim D(x,y)}[KL(q_{\theta}(z|x,y)||p(z))] = I(z;(x,y))+KL(q(z)||p(z))
 \end{align}
 We generally take standard gaussian as $$p(z)$$, so the representation $$q(z)$$ gets disentangled because of the weight term. To restrict the problem aroused by $$ I(z;(x,y)) $$, we can put a cap on the $$KL$$ term in this objective with a gradually increasing positive term $$ C_z $$ and modify our objective similar to that of [burgess et al's](https://arxiv.org/pdf/1804.03599.pdf). Using an approach like this simply narrows down our intent for learning meaningful representations. We expect to learn factors both which are and which are not affected by class-information. To solve this problem, we can use the following model, the details of which are explained in the next subsection.
 \begin{figure}[t]

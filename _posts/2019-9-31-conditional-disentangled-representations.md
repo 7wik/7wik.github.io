@@ -60,7 +60,12 @@ So, our overall objective is to solve the below multi-step optimization problem 
 \end{align} 
 
 # Results and experiments
-
-I tested this model on 3 datasets: MNIST, Fashion-MNIST, CelebA. I noticed some pretty good results on MNIST and FMNIST where I was able to generate multiple class-dependent features. I have clearly pointed out the noticed factor for each class. The qualitative results are shown below:
-
+## Qualitative results
+I tested this model on 3 datasets: MNIST, Fashion-MNIST, CelebA. I noticed some pretty good results on MNIST and FMNIST where I was able to generate multiple class-dependent features. I have clearly pointed out factors we identified for each class. We can understand what each factor corresponds to by traversing between -5 and 5 along a particular dimension and by keeping the values across all other dimesnions to be constant. The reconstructions along each row correspond to the samething done. The qualitative results are shown below:
 ![W FMNIST]({{ site.baseurl }}/images/w-fmnist.jpg "W FMNIST")
+The above image depicts the various factors that are observed in Fashion-MNIST dataset. 
+![W MNIST]({{ site.baseurl }}/images/mnist-grid.jpg "mnist")
+The above image depicts the various factors that are observed in MNIST dataset. 
+
+
+

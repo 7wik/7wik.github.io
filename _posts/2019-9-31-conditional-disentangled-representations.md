@@ -58,14 +58,26 @@ So, our overall objective is to solve the below multi-step optimization problem 
 \begin{align}
   &  \min_{\psi}  \quad && L_{class}
 \end{align} 
-
 # Results and experiments
+I tested this model on 3 datasets: MNIST, Fashion-MNIST, CelebA. I noticed some pretty good results on MNIST and FMNIST where I was able to generate multiple class-dependent features. 
 ## Qualitative results
-I tested this model on 3 datasets: MNIST, Fashion-MNIST, CelebA. I noticed some pretty good results on MNIST and FMNIST where I was able to generate multiple class-dependent features. I have clearly pointed out factors we identified for each class. We can understand what each factor corresponds to by traversing between -5 and 5 along a particular dimension and by keeping the values across all other dimesnions to be constant. The reconstructions along each row correspond to the samething done(Images in Red correspond to original images and the ones in green are their reconstructions). The qualitative results are shown below:
+### Class-specific factors(W|y)
+I have clearly pointed out factors we identified for each class. We can understand what each factor corresponds to by traversing between -5 and 5 along a particular dimension of the latent $$w$$ and by keeping the values across all other dimesnions to be constant. The reconstructions along each row correspond to the samething done(Images in Red correspond to original images and the ones in green are their reconstructions). The qualitative results are shown below:
 ![W FMNIST]({{ site.baseurl }}/images/w-fmnist.jpg "W FMNIST")
-The above image depicts the various factors that are observed in Fashion-MNIST dataset. 
-![W MNIST]({{ site.baseurl }}/images/mnist-grid.jpg "mnist")
-The above image depicts the various factors that are observed in MNIST dataset. 
+The above image depicts the various class-specific factors that are observed in Fashion-MNIST dataset. 
+![W MNIST]({{ site.baseurl }}/images/mnist-grid.jpg "MNIST")
+The above image depicts the various class-specific factors that are observed in MNIST dataset. 
+### Generic factors of variation(Z)
+The below results depict the factor that was learnt by the model. Each row corresponds to reconstructions observed while varying one particular dimension of the latent representation $$z$$ between -5 and 5. We noticed that, for a particular dimension, same factor can be seen to be varying for all the classes which is what was intended.
+![Z GRID]({{ site.baseurl }}/images/z-grid.jpg "z-common factor")
+Above image corresponds to the factor that is common to all the classes in that dataset.
+
+Each block corresponds to reconstructions observed while varying one particular dimension of the latent representation $$z$$ between -5 and 5. We noticed that, for that particular dimension, either no common factor or some meaningless variation can be seen to be varying for all the classes which is what was intended.
+![Z UNCHANGED GRID]({{ site.baseurl }}/images/z-comparison-unchanged.jpg "z-unaffected factors")
+
+
+
+## Quantitative results
 
 
 

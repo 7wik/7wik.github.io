@@ -28,7 +28,7 @@ The problem with this objective is quite clear, similar to that of $$\beta-$$VAE
 We generally take standard gaussian as $$p(z)$$, so the representation $$q(z)$$ gets disentangled because of the weight term. To restrict the problem aroused by $$ I(z;(x,y)) $$, we can put a cap on the $$KL$$ term in this objective with a gradually increasing positive term $$ C_z $$ and modify our objective similar to that of [burgess et al's](https://arxiv.org/pdf/1804.03599.pdf). Using an approach like this simply narrows down our intent for learning meaningful representations. We expect to learn factors both which are and which are not affected by class-information. To solve this problem, we can use the following model, the details of which are explained in the next subsection.
 
 # Proposed Model
-![Gaussian]({{ site.baseurl }}/images/model-2.jpg "Proposed model")
+![Proposed model]({{ site.baseurl }}/images/model-2.jpg "Proposed model")
 We propose a model which is a modification to the previous model's framework which allows us to model both class-dependent and class-independent factors. Let $$\textbf{z}$$,$$\textbf{w}$$ denote the set of class-dependent and class-independent variables respectively. We define a joint posterior $$ q_{\phi}(z,w|x,y) $$, a prior $$ p(z,w|y) $$ and likelihood $$ p_{\theta}(x|z,w,y) $$. With this premise, the conventional $$ \beta $$-VAE kind of objective is,
 \begin{equation}
     L(\theta,\phi)= E_{q_{\phi}(z,w|x,y)}[p_{\theta}(x|z,w,y)]-\beta .KL(q_{\phi}(z,w|x,y)||p(z,w|y))
@@ -58,3 +58,9 @@ So, our overall objective is to solve the below multi-step optimization problem 
 \begin{align}
   &  \min_{\psi}  \quad && L_{class}
 \end{align} 
+
+# Results and experiments
+
+I tested this model on 3 datasets: MNIST, Fashion-MNIST, CelebA. I noticed some pretty good results on MNIST and FMNIST where I was able to generate multiple class-dependent features. I have clearly pointed out the noticed factor for each class. The qualitative results are shown below:
+
+![W FMNIST]({{ site.baseurl }}/images/w-fmnist.jpg "W FMNIST")

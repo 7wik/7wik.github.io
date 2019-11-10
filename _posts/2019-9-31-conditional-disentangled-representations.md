@@ -75,9 +75,20 @@ Above image corresponds to the factor that is common to all the classes in that 
 Each block corresponds to reconstructions observed while varying one particular dimension of the latent representation $$z$$ between -5 and 5. We noticed that, for that particular dimension, either no common factor or some meaningless variation can be seen to be varying for all the classes which is what was intended.
 ![Z UNCHANGED GRID]({{ site.baseurl }}/images/z-comparison-unchanged.jpg "z-unaffected factors")
 
-
-
 ## Quantitative results
+To check the extent to which our objective has helped in channeling the class-information from $$z$$ to $$w$$, we have trained separate classifiers(with same capacity) on samples from $$z$$ and $$w|y$$ respectively to predict their respective class labels with and without using $$L_{class}$$ on the datasets MNIST,Fashion-MNIST and CelebA. The accuracies we are mentioning here are the average accuracies of $$3$$ runs. We took this average to avoid misjudgment caused due to randomization. It can be clearly observed that in all the $$3$$ datasets that we have tested upon, the case when using $$L_{class}$$ is helping $$w$$ in achieving higher accuracy in predicting the true label. This gives enough validation to our intent for the class-specific information to reside in $$w$$ and non-class specific information to be in $$z$$.
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+\textbf{Dataset}                 & \textbf{Method} & \textbf{Accuracy on z} & \textbf{Accuracy on w} \\ \hline
+\multirow{2}{*}{\textbf{Fmnist}} & without $$L_{class}$$  & 0.337                  & 0.47                   \\ \cline{2-4} 
+                                 & with $$L_{class}$$     & 0.32                   & \textbf{0.68}          \\ \hline
+\multirow{2}{*}{\textbf{Mnist}}  & without $$L_{class}$$  & 0.37                   & 0.31                   \\ \cline{2-4} 
+                                 & with $$L_{class}$$     & 0.30                   & \textbf{0.45}          \\ \hline
+\multirow{2}{*}{\textbf{celebA}} & without $$L_{class}$$  & 0.63                   & 0.68                   \\ \cline{2-4} 
+                                 & with $$L_{class}$$    & 0.685                  & \textbf{0.745}         \\ \hline
+\end{tabular}
 
 
 

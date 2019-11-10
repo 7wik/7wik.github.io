@@ -26,8 +26,9 @@ The problem with this objective is quite clear, similar to that of $$\beta-$$VAE
   E_{(x,y)\sim D(x,y)}[KL(q_{\theta}(z|x,y)||p(z))] = I(z;(x,y))+KL(q(z)||p(z))
 \end{align}
 We generally take standard gaussian as $$p(z)$$, so the representation $$q(z)$$ gets disentangled because of the weight term. To restrict the problem aroused by $$ I(z;(x,y)) $$, we can put a cap on the $$KL$$ term in this objective with a gradually increasing positive term $$ C_z $$ and modify our objective similar to that of [burgess et al's](https://arxiv.org/pdf/1804.03599.pdf). Using an approach like this simply narrows down our intent for learning meaningful representations. We expect to learn factors both which are and which are not affected by class-information. To solve this problem, we can use the following model, the details of which are explained in the next subsection.
-<img width="594" alt="screen shot 2017-10-08 at 1 09 31 am" src="https://github.com/7wik/7wik.github.io/blob/master/images/model-2.jpg">
+
 # Proposed Model
+<img width="394" alt="Proposed model" src="https://github.com/7wik/7wik.github.io/blob/master/images/model-2.jpg">
 We propose a model which is a modification to the previous model's framework which allows us to model both class-dependent and class-independent factors. Let $$\textbf{z}$$,$$\textbf{w}$$ denote the set of class-dependent and class-independent variables respectively. We define a joint posterior $$ q_{\phi}(z,w|x,y) $$, a prior $$ p(z,w|y) $$ and likelihood $$ p_{\theta}(x|z,w,y) $$. With this premise, the conventional $$ \beta $$-VAE kind of objective is,
 \begin{equation}
     L(\theta,\phi)= E_{q_{\phi}(z,w|x,y)}[p_{\theta}(x|z,w,y)]-\beta .KL(q_{\phi}(z,w|x,y)||p(z,w|y))

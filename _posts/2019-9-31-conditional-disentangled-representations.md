@@ -47,12 +47,9 @@ Since we have assumed that $$ z \perp y $$ and $$ z \perp w $$, we rewrite this 
     L(\theta,\phi)= E_{q_{\phi}(z,w|x,y)}[p_{\theta}(x|z,w,y)]-\beta .KL(q_{\phi}(z|x)||p(z|y)) - \gamma .KL(q_{\phi}(w|x,y)||p(w|y)) 
 \end{equation}
 Taking inspiration from [burgess et al](https://arxiv.org/pdf/1804.03599.pdf), we put a cap on the KL-divergence terms so that there is not much information about the data lost. With this our modified objective is
-\begin{subequations}
-  \label{eq1}
-  \begin{alignat*}{2}
-      L_{VAE}= E_{q_{\phi}(z,w|x,y)}[p_{\theta}(x|z,w,y)]-\beta|KL(q_{\phi}(z|x)||p(z|y)) - C_z| - \gamma|KL(q_{\phi}(w|x,y)||p(w|y)) - C_w| 
-  \end{alignat*}
-\end{subequations}
+\begin{alignat*}{2}
+  L_{VAE}= E_{q_{\phi}(z,w|x,y)}[p_{\theta}(x|z,w,y)]-\beta|KL(q_{\phi}(z|x)||p(z|y)) - C_z| - \gamma|KL(q_{\phi}(w|x,y)||p(w|y)) - C_w| 
+\end{alignat*}
 
 # Minimizing class dependence
 We have assumed that $$z \perp y$$ and we wanted most information related to $$y$$ to dwell in $$w$$, so we explicitly minimize the mutual information between $$z$$ and $$y$$. We do this by making use of a classifier network. If $$z \perp y$$, the classifier misclassifies a given $$z$$. For this purpose, we define an augmented loss to be maximized by the network using a binary-cross-entropy.
@@ -60,9 +57,8 @@ We have assumed that $$z \perp y$$ and we wanted most information related to $$y
 &   L_{class}(z)= y.log(\sigma(h_{\psi}(z))) + (1-y).log(1-\sigma(h_{\psi}(z)))
 \end{align}
 Since the classifier must also be capable of predicting the correct class label given $$z$$, the classifier's parameters are also to be trained to achieve the below defined objective-
-\begin{subequations}
-  \begin{alignat}{2}
-      \min_{\psi}        \quad &&  L_{class}
+\begin{alignat}{2}
+ \min_{\psi}        \quad &&  L_{class}
   \end{alignat}
 \end{subequations}
 So, our overall objective is to solve the below multi-step optimization problem where we train the parameters of encoder and decoder by solving the maximization problem in the first-step and train the parameters of the classifier in the next step while solving the minimization problem-

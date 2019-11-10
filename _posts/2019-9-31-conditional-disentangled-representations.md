@@ -80,11 +80,11 @@ To check the extent to which our objective has helped in channeling the class-in
 | Dataset       | Method                | Accuracy on z|Accuracy on w      |
 | ------------- |:---------------------:|:------------:| -----------------:|                    
 | Fmnist        | without $$L_{class}$$ | 0.337        |0.47               |
-| Fmnist        | with    $$L_{class}$$ | 0.32         |$$\textbf{0.68} $$ |
+| Fmnist        | with    $$L_{class}$$ | 0.32         |**0.68**           |
 | Mnist         | without $$L_{class}$$ | 0.37         |0.31               |
-| Mnist         | with    $$L_{class}$$ | 0.30         |$$\textbf{0.45}$$  |
+| Mnist         | with    $$L_{class}$$ | 0.30         |**0.45**           |
 | CelebA        | without $$L_{class}$$ | 0.63         |0.68               |
-| CelebA        | with    $$L_{class}$$ | 0.685        |$$\textbf{0.745}$$ |
+| CelebA        | with    $$L_{class}$$ | 0.685        |**0.745**          |
 
 
 

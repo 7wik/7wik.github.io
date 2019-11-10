@@ -30,7 +30,7 @@ The problem with this objective is quite clear, similar to that of $$\beta-$$VAE
   &= E_{(x,y)\sim D(x,y)}[E_{q_{\theta}(z|x,y)}[log[\frac{q_{\theta}(z|x,y)}{q(z)}]+log[\frac{q(z)}{p(z)}]]]\\
   &= I(z;(x,y))+KL(q(z)||p(z))
 \end{align}
-We generally take standard gaussian as p(z), so the representation q(z) gets disentangled because of the weight term. To restrict the problem aroused by $$ I(z;(x,y)) $$, we can put a cap on the KL term in this objective with a gradually increasing positive term $$ C_z $$ and modify our objective similar to that of [burgess et al's](https://arxiv.org/pdf/1804.03599.pdf). Using an approach like this simply narrows down our intent for learning meaningful representations. We expect to learn factors both which are and which are not affected by class-information. To solve this problem, we can use the following model, the details of which are explained in the next subsection.
+We generally take standard gaussian as $$p(z)$$, so the representation $$q(z)$$ gets disentangled because of the weight term. To restrict the problem aroused by $$ I(z;(x,y)) $$, we can put a cap on the $$KL$$ term in this objective with a gradually increasing positive term $$ C_z $$ and modify our objective similar to that of [burgess et al's](https://arxiv.org/pdf/1804.03599.pdf). Using an approach like this simply narrows down our intent for learning meaningful representations. We expect to learn factors both which are and which are not affected by class-information. To solve this problem, we can use the following model, the details of which are explained in the next subsection.
 \begin{figure}[t]
     \centering
     \includegraphics[width=0.7\linewidth]{images/model-1.jpg}
@@ -53,7 +53,8 @@ Taking inspiration from [burgess et al](https://arxiv.org/pdf/1804.03599.pdf), w
       L_{VAE}= E_{q_{\phi}(z,w|x,y)}[p_{\theta}(x|z,w,y)]-\beta|KL(q_{\phi}(z|x)||p(z|y)) - C_z| - \gamma|KL(q_{\phi}(w|x,y)||p(w|y)) - C_w| 
   \end{alignat*}
 \end{subequations}
-\subsection{Minimizing class dependence}
+
+# Minimizing class dependence
 We have assumed that $$z \perp y$$ and we wanted most information related to $$y$$ to dwell in $$w$$, so we explicitly minimize the mutual information between $$z$$ and $$y$$. We do this by making use of a classifier network. If $$z \perp y$$, the classifier misclassifies a given $$z$$. For this purpose, we define an augmented loss to be maximized by the network using a binary-cross-entropy.
 \begin{align}
 &   L_{class}(z)= y.log(\sigma(h_{\psi}(z))) + (1-y).log(1-\sigma(h_{\psi}(z)))
@@ -65,6 +66,18 @@ Since the classifier must also be capable of predicting the correct class label 
   \end{alignat}
 \end{subequations}
 So, our overall objective is to solve the below multi-step optimization problem where we train the parameters of encoder and decoder by solving the maximization problem in the first-step and train the parameters of the classifier in the next step while solving the minimization problem-
+\begin{align}
+  &  \max_{\theta,\phi} \quad && L(\theta,\phi)+ L_{class}\\
+  &  \min_{\psi}        \quad && L_{class}
+\end{align} 
+
+
+
+
+
+
+
+
 \begin{subequations}
   \begin{alignat*}{2}
       &  \max_{\theta,\phi} \quad && L(\theta,\phi)+ L_{class}\\

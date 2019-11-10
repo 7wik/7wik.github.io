@@ -46,7 +46,7 @@ Since we have assumed that $$ z \perp y $$ and $$ z \perp w $$, we rewrite this 
 \begin{equation}
     L(\theta,\phi)= E_{q_{\phi}(z,w|x,y)}[p_{\theta}(x|z,w,y)]-\beta .KL(q_{\phi}(z|x)||p(z|y)) - \gamma .KL(q_{\phi}(w|x,y)||p(w|y)) 
 \end{equation}
-Taking inspiration from [burgess et al].(https://arxiv.org/pdf/1804.03599.pdf), we put a cap on the KL-divergence terms so that there is not much information about the data lost. With this our modified objective is
+Taking inspiration from [burgess et al](https://arxiv.org/pdf/1804.03599.pdf), we put a cap on the KL-divergence terms so that there is not much information about the data lost. With this our modified objective is
 \begin{subequations}
 \label{eq1}
 \begin{alignat*}{2}

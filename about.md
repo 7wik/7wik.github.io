@@ -17,7 +17,7 @@ I'm an ML enthusiast. Working on multiple areas in the broad spectrum of ML and 
 - [Sanjeev sharma](https://www.linkedin.com/in/sanjeevsharmaiitr/) 
 mentored me during my quest for _exploring_ the multiple fascets of the broad field of ML and _exploiting_ the experience by working on interesting research problems.   
 
-This blog is particularly intended to convey what I've learned in ML through  my experiences, also I will try too discuss some of the research problems that I had worked on in the past- I started-off with pretty naive problems but as I started gaining experience, the level of complexity in the problems I dealt with also increased.
+This blog is particularly intended to convey what I've learned in ML through  my experiences, also I will try to discuss some of the research problems that I had worked on in the past- I started-off with pretty naive problems but as I started gaining experience, the level of complexity in the problems I dealt with also increased.
 
 ### Contact me
 

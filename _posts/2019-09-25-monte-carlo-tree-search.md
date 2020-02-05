@@ -13,10 +13,10 @@ The most common example where MCTS is used is the Tic-Tac-Toe game. In a 2-playe
 
 The algorithm is primarily dependent on 4 steps:
 
-1. Selection
-2. Expansion
-3. Rollout/simulation
-4. Backpropogation
+1. Selection: Secting the best node from the children
+2. Expansion: Adding permitted child nodes to a leaf node
+3. Rollout/simulation: Random simulation by selecting nodes randomly and proceding till the end of the game
+4. Backpropogation: Adding the final outcome to all the nodes in the path that led to that particular outcome. (This is not to be confused with the backprop in gradient based learning of neural netwroks.)
 
 
 

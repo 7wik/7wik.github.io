@@ -11,12 +11,19 @@ As it's name suggests, MCTS is an algorithm which is used for finding the best s
 
 The most common example where MCTS is used is the Tic-Tac-Toe game. In a 2-playered Tic-Tac-Toe game, with one intelligent player, we expect to develop a player controlled by AI which is equally competent with an intelligent player(human). In Tic-Tac-Toe's context, the AI-player must pick the best move(best child-node) among the possible moves(from the child nodes) in every chance of his to get a success as his end-result(victory). Hence, this is called a tree-search problem.
 
-The algorithm is primarily dependent on 4 steps:
+The algorithm is primarily dependent on the 4 steps mentioned below:-
+1. Selection: This step involves selecting the best node from the children
+2. Expansion: In this step, we add permitted(only the possible ones) child nodes to a leaf node
+3. Rollout/simulation: In this step, we perform simulation by selecting nodes randomly and proceed till the end of the game
+4. Backpropogation: In this step, we add the final outcome of the game to all the nodes in the path that led to that particular outcome. (This is not to be confused with the backprop in gradient based learning of neural networks)
+ In every game, we use these 4 steps to train our AI-player.
 
-1. Selection: Secting the best node from the children
-2. Expansion: Adding permitted child nodes to a leaf node
-3. Rollout/simulation: Random simulation by selecting nodes randomly and proceding till the end of the game
-4. Backpropogation: Adding the final outcome to all the nodes in the path that led to that particular outcome. (This is not to be confused with the backprop in gradient based learning of neural netwroks.)
+
+
+
+
+
+
 
 
 

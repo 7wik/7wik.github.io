@@ -22,9 +22,9 @@ for x_j,y_j in S:
         distance = np.square(x_j-t_i).sum()
 ```
 Instead, let's skip the part using 2 for loops- as numpy has some cool array-operations that can optimize our implementation. We should use the below identity for finding the euclidean distance between two vectors $$x_j, t_i$$:
-\begin{equation*}
+\begin{equation}
     ||t_i - x_j||^2_2 = (t_i - x_j)^T(t_i - x_j) = t_i^Tt_i + x_j^Tx_j -2t_i^Tx_j
-\end{equation*}
+\end{equation}
 For the last term we need to compute the product of the matrices(as we're dealing with matrices in our implementation not individual vectors). We can't escape doing the product of the two big arrays $$X, T$$ for the last term, so instead I focused on optimizing the way we find the first two terms:
 ## Optmization -1
 If we observe carefully, the first and second terms: $$t_i^Tt_i, x_j^Tx_j$$ involve taking the dot product of the vectors with themselves. So we can simply take the product $$S^T.dot(S)$$ and $$T^T.dot(T)$$, and pick the diagonal elements from the obtained matrices.
@@ -43,13 +43,13 @@ If we notice carefully, the first two terms represent square of lengths of every
 
 To test the efficacy of these steps, I did a simple experiment:
 I picked the MNIST dataset, For each $$n \in \{1000, 2000, 4000, 8000\}$$:
-\begin{itemize}
-    \item Draw n points from data, together with their corresponding labels, uniformly
+<!-- \begin{itemize} -->
+1. Draw n points from data, together with their corresponding labels, uniformly
 at random. Use sel = random.sample(range(60000,n) (after import random),
 ocr['data'][sel].astype('float'), and ocr['labels'][sel] to select the examples
-    \item Use these n points as the training data and testdata as the test points; compute the fraction
+1. Use these n points as the training data and testdata as the test points; compute the fraction
 of test examples on which the nearest neighbor classifier predicts the label incorrectly (i.e.,
 the test error rate)
-\end{itemize}
+<!-- \end{itemize} -->
 Carried out the above two steps 10 times for every $$n$$
 The first optimization took 

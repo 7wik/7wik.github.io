@@ -50,5 +50,9 @@ at random.
 of test examples on which the nearest neighbor classifier predicts the label incorrectly (i.e.,
 the test error rate)
 <!-- \end{itemize} -->
+This is the plot of the learning curve when using the nearest neighbor algorithm
+![learning_curve]({{ site.baseurl }}/images/learning_curve.jpg "learning_curve")
+This is the plot of the likelihood after every iteration
+![likelihood]({{ site.baseurl }}/images/MLE.jpg "likelihood")
 Carried out the above two steps 10 times for every $$n$$
-The first optimization step took 222.86 seconds, and the second optimization took 111.9936. That means, a simple understanding of what norm is reduced our runtime by half. I have uploaded these two implementations on my github account- [Optimization-1](https://github.com/7wik/Nearest-neighbor-classifier/blob/main/nn.py), [Optimization-2](https://github.com/7wik/Nearest-neighbor-classifier/blob/main/nn2.py). Please keep checking this blog for further cool posts.
+The first optimization step took 222.86 seconds, and the second optimization took 111.9936. That means, a simple understanding of what norm is, has reduced our runtime by half. I have uploaded these two implementations on my github account- [Optimization-1](https://github.com/7wik/Nearest-neighbor-classifier/blob/main/nn.py), [Optimization-2](https://github.com/7wik/Nearest-neighbor-classifier/blob/main/nn2.py). Please keep checking this blog for further cool posts.
